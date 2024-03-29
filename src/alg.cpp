@@ -1,6 +1,6 @@
 // Copyright 2022 Kokin Ivan
 #include <cstdint>
-
+#include "alg.h"
 
 
 bool checkPrime(uint64_t value) {
