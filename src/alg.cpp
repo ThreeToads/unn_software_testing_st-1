@@ -1,10 +1,10 @@
 // Copyright 2022 Kokin Ivan
 #include <cstdint>
-#include "alg.h"
+
 
 
 bool checkPrime(uint64_t value) {
-    if (value <= 1){return false;}
+    if (value <= 1) { return false; }
     for (uint64_t i = 2; i*i <= value; i++) {
         if (value % i == 0)
             return false;
@@ -26,9 +26,9 @@ uint64_t nPrime(uint64_t n) {
 }
 
 uint64_t nextPrime(uint64_t value) {
-    while(true){
+    while (true) {
         ++value;
-        if (checkPrime(value)){return value;}
+        if (checkPrime(value)) {return value;}
     }
 }
 
