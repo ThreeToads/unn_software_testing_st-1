@@ -1,9 +1,9 @@
 // Copyright 2024 Kokin Ivan
 #include <gtest/gtest.h>
 #include <cstdint>
-#include "alg.h"
 #include <cstdlib>
 #include <ctime>
+#include "alg.h"
 
 
 TEST(checkPrime, testConstatValue) {
