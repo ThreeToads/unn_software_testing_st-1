@@ -1,5 +1,6 @@
 // Copyright 2024 Kokin Ivan
 #include <gtest/gtest.h>
+#include <cstdint>
 #include "alg.h"
 
 TEST(PrimeTest, CheckPrimeWithPrimeNumber) {
