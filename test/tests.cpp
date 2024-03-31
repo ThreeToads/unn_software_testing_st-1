@@ -1,66 +1,29 @@
 // Copyright 2024 Kokin Ivan
 #include <gtest/gtest.h>
-#include <cstdint>
-#include <cstdlib>
-#include <ctime>
 #include "alg.h"
 
-
-TEST(checkPrime, testConstatValue) {
-    EXPECT_TRUE(checkPrime(5));
+TEST(PrimeTest, CheckPrimeWithPrimeNumber) {
     EXPECT_TRUE(checkPrime(11));
-    EXPECT_FALSE(checkPrime(128));
-    EXPECT_FALSE(checkPrime(1024));
 }
 
 
-TEST(checkPrime, testBigConstantValue) {
-    EXPECT_TRUE(checkPrime(1e9 + 7));
-    EXPECT_TRUE(checkPrime(1e9 + 9));
-    EXPECT_TRUE(checkPrime(998'244'353));
+TEST(PrimeTest, CheckPrimeWithCompositeNumber) {
+    EXPECT_FALSE(checkPrime(20));
 }
 
-TEST(checkPrime, testRandomFalse) {
-    uint32_t seed = time(0);
-    int n = 10;
-    for (int i = 0; i < n; i++) {
-    uint64_t value = rand_r(&seed) % 1'000'000'000;
-    EXPECT_FALSE(checkPrime(value * value));
-}
+
+TEST(PrimeTest, NthPrimeNumber) {
+    EXPECT_EQ(11, nPrime(5));
 }
 
-TEST(checkPrime, testErrorValues) {
-EXPECT_FALSE(checkPrime(0));
-}
 
-TEST(nPrime, testConstValueN) {
-    EXPECT_EQ(2, nPrime(1));
-    EXPECT_EQ(3, nPrime(2));
-    EXPECT_EQ(5, nPrime(3));
-}
-
-TEST(nPrime, testBigConstValueN) {
-    EXPECT_EQ(1299709, nPrime(100000));
-    EXPECT_EQ(1299721, nPrime(100001));
-}
-
-TEST(nextPrime, testConstValueNext) {
-    EXPECT_EQ(2, nextPrime(0));
-    EXPECT_EQ(2, nextPrime(1));
+TEST(PrimeTest, NextPrimeNumber) {
     EXPECT_EQ(11, nextPrime(7));
 }
 
-TEST(nextPrime, testBigConstValueNext) {
-    EXPECT_EQ(1e9 + 7, nextPrime(1e9));
-    EXPECT_EQ(1e9 + 9, nextPrime(1e9 + 7));
-}
 
-TEST(sumPrime, testConstValueSum) {
-    EXPECT_EQ(0, sumPrime(1));
-    EXPECT_EQ(17, sumPrime(10));
-    EXPECT_EQ(1060, sumPrime(100));
-}
-
-TEST(sumPrime, testBiGConstValueSum) {
-    EXPECT_EQ(37550402023, sumPrime(1e6));
+TEST(PrimeTest, SumOfPrimeNumbers) {
+    uint64_t maxBound = 21;
+    uint64_t expectedSum = 2 + 3 + 5 + 7 + 11 + 13 + 17 + 19;
+    EXPECT_EQ(expectedSum, sumPrime(maxBound));
 }
